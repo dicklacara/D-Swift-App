@@ -7,16 +7,42 @@
 //
 
 import UIKit
-import SiriKit
+
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var text1: UITextField!
+    
+    @IBOutlet weak var text2: UITextField!
+    
     @IBOutlet weak var theLabel: UILabel!
+    
+    @IBAction func buttonTapped(_ sender: AnyObject) {
+        print(text1.text!)
+        print(text2.text!)
+        theLabel.text = String(Double(text1.text!)! + Double(text2.text!)!)
+        theLabel.text = "Answer: \(Double(text1.text!)! + Double(text2.text!)!)"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        //self.view.backgroundColor = UIColor.red
         theLabel.text = "Hello There!"
+        
+        /*
+         
+        Section 2, Lecture 9. Outlets Video 2:54/7:49
+         
+        With Xcode 8.0 Beta 6:
+         
+        self.view.backgroundColor = UIColor.red
+         
+        instead of:
+         
+        self.view.backgroundColor = UIColor.red()
+         
+        */
     }
 
     override func didReceiveMemoryWarning() {
